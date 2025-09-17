@@ -12,9 +12,30 @@ body {
 img {
     margin: auto;
     display: block;
-    width: 100%;
+    width: 1440px;
     height: 200px;
 }
 
+h1 {
+    text-align: center;
+}
 
+a {
+    padding: 20px;
+}
 
+a:link {
+  color: #592D27;
+}
+
+a:visited {
+  color: #592D27;
+}
+
+a:hover {
+  color: #EAC27B;
+}
+
+a:active {
+  color: #592D27;
+}
