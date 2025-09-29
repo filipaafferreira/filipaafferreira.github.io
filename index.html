@@ -4,45 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primeira Página</title>
+    <title>Portefolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <header>
-        <h1>O meu primeiro site</h1>
-    </header>
-
-    <main>
-        <p>Eis a minha primeira página Web!</p>
-        <p>
-            Na Unidade Curricular de
-            <a href="https://moodle.ensinolusofona.pt/course/view.php?id=11232" target="_blank">
-                Desenvolvimento de Interfaces Web
-            </a>
-            abordaremos as seguintes tecnologias Web &#127760;:
-        </p>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>React e Next.js</li>
-        </ul>
-        <p>Iremos criar soluções criativas!</p>
+    <!--NAVBAR-->
+    <section class="navbar">
         <nav>
             <ul>
-                <li><a href="lab1/index.html">Lab1</a></li>
-                <li><a href="lab2/index.html">Lab2</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#subject">Interfaces Web</a></li>
             </ul>
         </nav>
-        <img src="images/diw.svg" alt="Desenvolvimento de Interfaces Web">
-    </main>
+    </section>
 
-    <footer>
-        <p>Universidade Lusófona &copy; 2025</p>
-    </footer>
+    <!--HERO PAGE-->
+    <section id="home" class="hero">
+        <div class="column left">
+            <span class="hello">HELLO</span>
+            <h1 class="text-intro">I'm Filipa Ferreira<br>a junior developer<br>from Portugal.</h1>
 
+            <div class="buttons">
+                <a href="#projects" class="btn black">Projects</a>
+                <a href="lab3/files/cover_letter_squarespace.pdf" target="_blank" class="btn white">Cover Letter</a>
+            </div>
+        </div>
+
+        <div class="column right">
+            <img src="images/me.jpeg" alt="Filipa Ferreira">
+            <a href="lab3/files/cv.pdf" target="_blank" class="btn outline">Get My CV</a>
+        </div>
+    </section>
+
+    <!--PROJECTS-->
+    <section id="projects" class="projects">
+        <h2>Projects / Labs</h2>
+        <p>Some exercises developed throughout the UC.</p>
+        <div class="container-cards">
+            <a href="lab1/index.html">
+                <div class="card">
+                    <h3>Lab 1</h3>
+                    <p>Base structure and semantics.</p>
+                </div>
+            </a>
+            <a href="lab2/index.html">
+                <div class="card">
+                    <h3>Lab 2</h3>
+                    <p>Responsive styles and layout.</p>
+                </div>
+            </a>
+            <a href="lab3/index.html">
+                <div class="card">
+                    <h3>Lab 3</h3>
+                    <p>Interactivity with JS.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!--SUBJECT-->
+    <section id="subject" class="subject">
+        <div class="subject-text">
+            <h2>Interfaces Web</h2>
+            <p>
+                Na Unidade Curricular de
+                <a class="subject-link" href="https://moodle.ensinolusofona.pt/course/view.php?id=11232"
+                    target="_blank">
+                    Desenvolvimento de Interfaces Web
+                </a>
+                abordaremos as seguintes tecnologias Web &#127760;:
+            </p>
+            <ul class="tech-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React e Next.js</li>
+            </ul>
+            <p>Iremos criar soluções criativas!</p>
+        </div>
+        <div class="tech-image">
+            <img src="images/diw.svg" alt="Desenvolvimento de Interfaces Web">
+        </div>
+    </section>
+
+    <!--FOOTER-->
+    <section class="footer">
+        <footer>
+            <p>Universidade Lusófona &copy; 2025</p>
+        </footer>
+    </section>
 </body>
 
 </html>

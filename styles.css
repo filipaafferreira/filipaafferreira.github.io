@@ -1,16 +1,402 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fdfdfd;
-    margin: 0;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+/* ========= IMPORTS ========= */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
+/* ========= VARIABLES ========= */
+:root {
+  /* is the same as the <html> selector */
+  --color-dark: #1a1a1a;
+  /* to background dark */
+  --color-light: #f5f5f5;
+  /* to background light */
+  --color-highlight: #b45309;
+  /* to highlight words */
+  --color-neutral: #e0e0e0;
+  /* to neutralize contrasts (background) */
+  --font-text: 'Libre Baskerville', serif;
+  /* for information */
+  --font-titles: 'Inter', sans-serif;
+  /* for titles */
 }
 
-img {
-    margin: auto;
-    display: block;
-    width: 300px;
+/* ========= DEFAULT VALUES ========= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+/* ========= NAVBAR ========= */
+.navbar {
+  background-color: var(--color-dark);
+  position: fixed;
+  /* to continue to always appear at the top of the screen with its own scroll */
+  z-index: 3;
+  /* to stay on top of the background image */
+  display: flex;
+  padding: 1.2rem 2rem;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  width: calc(100% - 8rem);
+  margin: 2rem 4rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--color-light);
+}
+
+nav a:hover {
+  color: var(--color-highlight);
+}
+
+/* ========= HERO ========= */
+
+.hero {
+  display: flex;
+  min-height: 100vh;
+}
+
+.hero .column {
+  flex: 1;
+  /* divide outer flexbox (hero) into 2 equal parts (with same proportions) */
+}
+
+/* LEFT SIDE */
+.hero .left {
+  background: var(--color-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 2rem 5rem;
+}
+
+.hero .hello {
+  color: var(--color-highlight);
+  font-weight: 600;
+  letter-spacing: 0.125rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-titles);
+}
+
+.hero .text-intro {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+  color: var(--color-dark);
+  font-family: var(--font-text);
+  margin-bottom: 3.125rem;
+}
+
+.hero .buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero .btn {
+  padding: 0.875rem 1.875rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.125rem;
+  font-family: var(--font-titles);
+  border: 2px solid transparent;
+  text-decoration: none;
+}
+
+.hero .btn.black {
+  background: var(--color-highlight);
+  color: var(--color-light);
+}
+
+.hero .btn.black:hover {
+  opacity: 0.7;
+}
+
+.hero .btn.white {
+  background: transparent;
+  color: var(--color-dark);
+  border-color: var(--color-dark);
+}
+
+.hero .btn.white:hover {
+  color: var(--color-highlight);
+  border-color: var(--color-highlight);
+}
+
+/* RIGHT SIDE */
+.hero .column.right {
+  position: relative;
+  display: flex;
+}
+
+.hero .column.right img {
+  width: 100%;
+}
+
+.hero .column.right .btn.outline {
+  position: absolute;
+  bottom: 2rem;
+  left: 8%;
+  z-index: 2;
+  background: transparent;
+  color: var(--color-light);
+  border-color: var(--color-light);
+}
+
+.hero .column.right .btn.outline:hover {
+  background: var(--color-highlight);
+  color: var(--color-light);
+}
+
+.hero .column.right .btn.outline::after {
+  content: "";
+  /* to use pseudo-elements there must be content drawn in the DOM */
+  position: absolute;
+  top: 50%;
+  left: -8vw;
+  width: 8vw;
+  height: 2px;
+  background: var(--color-light);
+}
+
+/* ========= PROJECTS ========= */
+.projects {
+  background: var(--color-neutral);
+  padding: 8rem 0rem 8rem 5rem;
+}
+
+.projects h2 {
+  font-family: var(--font-titles);
+  font-size: clamp(1.8rem, 2.2vw, 2.5rem);
+  position: relative;
+  color: var(--color-dark);
+}
+
+.projects h2::after {
+  content: "";
+  position: absolute;
+  bottom: -0.8rem;
+  left: 0;
+  width: 40%;
+  max-width: 240px;
+  /* limit for large screens */
+  height: 0.25rem;
+  background: var(--color-highlight);
+  border-radius: 2px;
+}
+
+.projects p {
+  font-family: var(--font-text);
+  margin-top: 1.6rem;
+  font-size: clamp(0.9rem, 1vw, 1.1rem);
+  color: var(--color-dark);
+  opacity: 0.6;
+  max-width: 60ch;
+  /* avoid lines that are too long */
+}
+
+.container-cards {
+  margin-top: 2rem;
+  gap: 2rem;
+  width: calc(100% - 5rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  padding: 2rem;
+  background: var(--color-light);
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  /* necessary for ::before */
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0.3rem;
+  background: var(--color-highlight);
+  border-radius: 0.75rem 0 0 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.15);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h3 {
+  font-family: var(--font-titles);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--color-dark);
+  letter-spacing: 0.05rem;
+}
+
+.card p {
+  font-family: var(--font-text);
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-dark);
+}
+
+/* ========= SUBJECT ========= */
+.subject {
+  background: var(--color-light);
+  padding: 6rem 0rem 8rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.subject-text {
+  grid-column: 1;
+}
+
+.subject h2 {
+  font-family: var(--font-titles);
+  font-size: clamp(1.8rem, 2.2vw, 2.5rem);
+  position: relative;
+  color: var(--color-dark);
+}
+
+.subject h2::after {
+  content: "";
+  position: absolute;
+  bottom: -0.8rem;
+  left: 0;
+  width: 40%;
+  max-width: 240px;
+  /* limit for large screens */
+  height: 0.25rem;
+  background: var(--color-highlight);
+  border-radius: 2px;
+}
+
+.subject p {
+  font-family: var(--font-text);
+  margin-top: 1.6rem;
+  font-size: clamp(0.9rem, 1vw, 1.1rem);
+  color: var(--color-dark);
+  /* avoid lines that are too long */
+}
+
+.tech-list {
+  list-style-type: circle;
+  margin: 0.5rem 0 0 2rem;
+  font-family: var(--font-text);
+}
+
+.subject-link {
+  color: var(--color-highlight);
+}
+
+.subject-link:hover {
+  text-decoration: underline;
+}
+
+.tech-image {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.tech-image img {
+  height: 18rem;
+  object-fit: cover;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  background: var(--color-dark);
+}
+
+.footer p {
+  font-family: var(--font-titles);
+  color: var(--color-light);
+}
+
+/* ========= MEDIA QUERY'S ========= */
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+  }
+
+  nav ul {
+    gap: 1.5rem;
+  }
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero .left {
+    padding: 2rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero .text-intro {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    margin-bottom: 2rem;
+  }
+
+  .hero .buttons {
+    justify-content: center;
+  }
+
+  .hero .column.right .btn.outline {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero .text-intro {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+
+  .hero .buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
