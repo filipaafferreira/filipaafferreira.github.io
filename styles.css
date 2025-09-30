@@ -236,7 +236,7 @@ nav a:hover {
   /* avoid lines that are too long */
 }
 
-.projects-text{
+.projects-text {
   margin-right: 6rem;
 }
 
@@ -651,5 +651,13 @@ nav a:hover {
     height: 0.25rem;
     background: var(--color-highlight);
     border-radius: 2px;
+  }
+
+  .container-cards {
+    margin-top: 2rem;
+    gap: 2rem;
+    width: calc(100% - 5rem);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(254px, 1fr));
   }
 }
