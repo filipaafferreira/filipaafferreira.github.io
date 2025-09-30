@@ -34,6 +34,11 @@ a:active {
   text-decoration: none;
 }
 
+section {
+  width: 100%;
+  background: var(--color-light);
+}
+
 /* ========= NAVBAR ========= */
 .navbar {
   background-color: var(--color-dark);
@@ -43,11 +48,28 @@ a:active {
   /* to stay on top of the background image */
   display: flex;
   padding: 1.2rem 2rem;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-family: "Inter", sans-serif;
   width: calc(100% - 8rem);
   margin: 2rem 4rem;
+}
+
+.logo a {
+  color: var(--color-light);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.hamburguer {
+  font-size: 2rem;
+  color: var(--color-light);
+  cursor: pointer;
+  display: none;
+}
+
+.menu {
+  transition: transform 0.3s ease;
 }
 
 nav ul {
@@ -145,8 +167,11 @@ nav a:hover {
   display: flex;
 }
 
-.hero .column.right img {
+.hero img {
   width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-width: 100%;
 }
 
 .hero .column.right .btn.outline {
@@ -193,7 +218,7 @@ nav a:hover {
   position: absolute;
   bottom: -0.8rem;
   left: 0;
-  width: 40%;
+  width: 16%;
   max-width: 240px;
   /* limit for large screens */
   height: 0.25rem;
@@ -209,6 +234,10 @@ nav a:hover {
   opacity: 0.6;
   max-width: 60ch;
   /* avoid lines that are too long */
+}
+
+.projects-text{
+  margin-right: 6rem;
 }
 
 .container-cards {
@@ -271,14 +300,14 @@ nav a:hover {
 .subject {
   background: var(--color-light);
   padding: 6rem 0rem 8rem 5rem;
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 2rem;
 }
 
 .subject-text {
-  grid-column: 1;
+  flex: 1;
 }
 
 .subject h2 {
@@ -327,6 +356,7 @@ nav a:hover {
   grid-column: 2;
   display: flex;
   justify-content: center;
+  flex: 1;
 }
 
 .tech-image img {
@@ -349,15 +379,95 @@ nav a:hover {
 
 /* ========= MEDIA QUERY'S ========= */
 
+@media (max-width: 1200px) {
+  .projects h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    width: 18%;
+    max-width: 240px;
+    /* limit for large screens */
+    height: 0.25rem;
+    background: var(--color-highlight);
+    border-radius: 2px;
+  }
+
+  .subject h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    width: 38%;
+    max-width: 240px;
+    /* limit for large screens */
+    height: 0.25rem;
+    background: var(--color-highlight);
+    border-radius: 2px;
+  }
+}
+
+@media (max-width: 992px) {
+  .projects h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    width: 22%;
+    max-width: 240px;
+    height: 0.25rem;
+    background: var(--color-highlight);
+    border-radius: 2px;
+  }
+
+  .subject h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    width: 46%;
+    max-width: 240px;
+    height: 0.25rem;
+    background: var(--color-highlight);
+    border-radius: 2px;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
-    width: 100%;
-    margin: 0;
-    padding: 1rem;
+    max-width: 90%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--color-dark);
+    z-index: 1000;
+    margin: 2rem 4rem;
   }
 
   nav ul {
-    gap: 1.5rem;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    /* logo abaixo da navbar */
+    left: 0;
+    width: 100%;
+    background: var(--color-dark);
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .hamburguer {
+    display: block;
+    cursor: pointer;
+    z-index: 1100;
+    margin-left: auto;
   }
 
   .hero {
@@ -373,6 +483,7 @@ nav a:hover {
   .hero .text-intro {
     font-size: clamp(1.8rem, 6vw, 3rem);
     margin-bottom: 2rem;
+    margin-top: 4rem;
   }
 
   .hero .buttons {
@@ -380,8 +491,120 @@ nav a:hover {
   }
 
   .hero .column.right .btn.outline {
-    left: 50%;
+    left: 22%;
     transform: translateX(-50%);
+    margin-bottom: 4rem;
+  }
+
+  .hero .right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero img {
+    max-width: 90%;
+    margin-bottom: 4rem;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--color-dark);
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+  }
+
+  .menu.show {
+    display: block;
+  }
+
+  .subject {
+    flex-direction: column;
+    padding: 6rem 0rem 2rem 5rem;
+  }
+
+  .subject-text {
+    margin: 2rem 4rem 0rem 0rem;
+  }
+
+  .subject-img {
+    text-align: center;
+  }
+
+  .projects h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    width: 29%;
+    max-width: 240px;
+    height: 0.25rem;
+    background: var(--color-highlight);
+    border-radius: 2px;
+  }
+
+  .tech-image {
+    display: flex;
+    justify-content: center;
+    margin-right: 5rem;
+    padding: 0;
+  }
+
+  .tech-image img {
+    max-width: 60%;
+    height: auto;
+  }
+
+  .subject h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    width: 33%;
+    max-width: 240px;
+    height: 0.25rem;
+    background: var(--color-highlight);
+    border-radius: 2px;
+  }
+}
+
+@media (max-width: 575px) {
+  section {
+    min-height: auto;
+    padding: 2rem 1rem;
+    background: var(--color-light);
+  }
+
+  .projects h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    width: 42%;
+    max-width: 240px;
+    height: 0.25rem;
+    background: var(--color-highlight);
+    border-radius: 2px;
+  }
+
+  .subject h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    width: 50%;
+    max-width: 240px;
+    height: 0.25rem;
+    background: var(--color-highlight);
+    border-radius: 2px;
   }
 }
 
@@ -398,5 +621,35 @@ nav a:hover {
   .hero .buttons {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .hero .column.right .btn.outline {
+    left: 30%;
+    transform: translateX(-50%);
+    margin-bottom: 4rem;
+  }
+
+  .projects h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    width: 50%;
+    max-width: 240px;
+    height: 0.25rem;
+    background: var(--color-highlight);
+    border-radius: 2px;
+  }
+
+  .subject h2::after {
+    content: "";
+    position: absolute;
+    bottom: -0.8rem;
+    left: 0;
+    width: 60%;
+    max-width: 240px;
+    height: 0.25rem;
+    background: var(--color-highlight);
+    border-radius: 2px;
   }
 }
