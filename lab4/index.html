@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/lab4/css/style.css" />
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <section class="navbar">
+        <div class="logo"><a href="#home">Portfolio</a></div>
+        <div class="hamburguer">&#9776;</div>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Go back to Home</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <main>
+        <h1>Javascript Playground</h1>
+
+        <div class="cards-container">
+            <!-- 1. Interactive Hover -->
+            <div class="card hover">
+                <h2>1. Interactive Hover</h2>
+                <p id="txtHover">Pass your mouse here!</p>
+            </div>
+
+            <!-- 2. Color Theme Toggle -->
+            <div class="card">
+                <h2>2. Color Theme Toggle</h2>
+                <p class="paint">Pinta-me!</p>
+                <div class="color-buttons">
+                    <button class="btn red">Red</button>
+                    <button class="btn green">Green</button>
+                    <button class="btn blue">Blue</button>
+                </div>
+            </div>
+
+            <!-- 3. Real-time Text Display -->
+            <div class="card">
+                <h2>3. Real-time Text Display</h2>
+                <p class="text">Try writing...</p>
+                <input id="txt" type="text" placeholder="Your text will appear here..." />
+            </div>
+
+            <div class="card change">
+                <h2>4. Submit Button</h2>
+                <p class="text">Write a color in English:</p>
+                <input id="txtColorChange" type="text">
+                <button class="btn submit">Submit</button>
+            </div>
+
+            <div class="card">
+                <h2>5. Simple Counter</h2>
+                <p class="counter" id="counter">33</p>
+                <div class="counter-buttons">
+                    <button class="btn minus">−</button>
+                    <button class="btn plus">+</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
