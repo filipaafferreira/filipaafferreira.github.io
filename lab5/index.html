@@ -36,9 +36,9 @@
                 <h2>2. Color Theme Toggle</h2>
                 <p class="paint">Pinta-me!</p>
                 <div class="color-buttons">
-                    <button class="btn red">Red</button>
-                    <button class="btn green">Green</button>
-                    <button class="btn blue">Blue</button>
+                    <button class="btn color red" data-color="#c0392b">Red</button>
+                    <button class="btn color green" data-color="#27ae60">Green</button>
+                    <button class="btn color blue" data-color="#2980b9">Blue</button>
                 </div>
             </div>
 
@@ -72,11 +72,13 @@
             </div>
 
             <div class="card">
-                <h2>6. Submit Button</h2>
-                <input id="inputName" type="text" placeholder="Insert name" />
-                <input id="inputAge" type="number" placeholder="Insert age" />
-                <button class="btn" id="btnSubmit">Submit</button>
-                <p id="userResult"></p>
+                <form>
+                    <h2>6. Submit Button</h2>
+                    <input id="inputName" type="text" placeholder="Insert name" />
+                    <input id="inputAge" type="number" placeholder="Insert age" />
+                    <input class="btn" type="submit">
+                    <p id="userResult"></p>
+                </form>
             </div>
 
             <div class="card">

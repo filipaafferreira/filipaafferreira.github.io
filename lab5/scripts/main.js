@@ -24,6 +24,12 @@ const colors = ['#ff6b6b', '#feca57', '#1dd1a1', '#54a0ff', '#5f27cd'];
 
 let value = parseInt(txtCounter.textContent);
 
+let autoCount = localStorage.getItem("autoCount")
+  ? parseInt(localStorage.getItem("autoCount"))
+  : 0;
+
+const autoCounter = document.getElementById("autoCounter");
+
 /* EX 1 */
 txtElementHover.addEventListener("mouseenter", () => {
     txtElementHover.classList.add("active");
@@ -36,16 +42,11 @@ txtElementHover.addEventListener("mouseleave", () => {
 });
 
 /* EX 2 */
-btnRed.addEventListener('click', () => {
-    txtElementPaint.style.color = '#c0392b';
-});
-
-btnGreen.addEventListener('click', () => {
-    txtElementPaint.style.color = '#27ae60';
-});
-
-btnBlue.addEventListener('click', () => {
-    txtElementPaint.style.color = '#2980b9';
+document.querySelectorAll('button.color').forEach(button => {
+    button.addEventListener('click', () => {
+        const color = button.dataset.color;
+        txtElementPaint.style.color = color;
+    });
 });
 
 /* EX 3 */
@@ -56,9 +57,9 @@ txtMultiColors.addEventListener('input', () => {
 });
 
 /* EX 4 */
-colorSelect.addEventListener("change", () => {
-  colorCard.style.backgroundColor = colorSelect.value;
-});
+document.querySelector('select').onchange = function () {
+    document.querySelector('.change').style.backgroundColor = this.value;
+};
 
 /* EX 5 */
 function Sum() {
@@ -72,22 +73,27 @@ function Sub() {
 }
 
 /* EX 6 */
-btnSubmit.addEventListener("click", () => {
-  const name = inputName.value.trim();
-  const age = inputAge.value.trim();
+document.querySelector('form').onsubmit = (e) => {
+    e.preventDefault()
+    const name = inputName.value.trim();
+    const age = inputAge.value.trim();
 
-  if (name && age) {
-    txtUserResult.textContent = `Olá ${name}, tens ${age} anos!`;
-  } else {
-    txtUserResult.textContent = "Por favor, preenche ambos os campos.";
-  }
-});
+    if (name && age) {
+        txtUserResult.textContent = `Olá ${name}, tens ${age} anos!`;
+    } else {
+        txtUserResult.textContent = "Por favor, preenche ambos os campos.";
+    }
+};
 
 /* EX 7 */
-let autoCount = 0;
-const autoCounter = document.getElementById("autoCounter");
-
-setInterval(() => {
+function updateCounter() {
   autoCount++;
   autoCounter.textContent = autoCount;
-}, 1000);
+  localStorage.setItem("autoCount", autoCount);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  autoCounter.textContent = autoCount;
+
+  setInterval(updateCounter, 1000);
+});
