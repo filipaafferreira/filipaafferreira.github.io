@@ -1,0 +1,232 @@
+/* ========= IMPORTS ========= */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
+/* ========= VARIABLES ========= */
+:root {
+  /* is the same as the <html> selector */
+  --color-dark: #1a1a1a;
+  /* to background dark */
+  --color-light: #f5f5f5;
+  /* to background light */
+  --color-highlight: #b45309;
+  /* to highlight words */
+  --color-neutral: #e0e0e0;
+  /* to neutralize contrasts (background) */
+  --font-text: 'Libre Baskerville', serif;
+  /* for information */
+  --font-titles: 'Inter', sans-serif;
+  /* for titles */
+}
+
+/* ========= DEFAULT VALUES ========= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+section {
+  width: 100%;
+  background: var(--color-light);
+}
+
+/* ========= NAVBAR ========= */
+.navbar {
+  background-color: var(--color-dark);
+  position: fixed;
+  /* to continue to always appear at the top of the screen with its own scroll */
+  z-index: 3;
+  /* to stay on top of the background image */
+  display: flex;
+  padding: 1.2rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  width: calc(100% - 8rem);
+  margin: 2rem 4rem;
+}
+
+.logo a {
+  color: var(--color-light);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.hamburguer {
+  font-size: 2rem;
+  color: var(--color-light);
+  cursor: pointer;
+  display: none;
+}
+
+.menu {
+  transition: transform 0.3s ease;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--color-light);
+}
+
+nav a:hover {
+  color: var(--color-highlight);
+}
+
+main {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+h1 {
+  margin: 6rem 0 4rem;
+  font: 3rem var(--font-titles);
+  color: var(--color-dark);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  font-family: var(--font-titles);
+  color: var(--color-light);
+  text-align: left;
+}
+
+.card p {
+  font-family: var(--font-text);
+  color: var(--color-light);
+  margin-top: 1rem;
+}
+
+.hover {
+  position: relative;
+  min-height: 180px;
+  background-color: var(--color-highlight);
+}
+
+.hover p {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+  color: var(--color-light);
+}
+
+.paint {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: var(--color-light);
+}
+
+.btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.red {
+  background-color: #c0392b;
+}
+
+.green {
+  background-color: #27ae60;
+}
+
+.blue {
+  background-color: #2980b9;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+select {
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    height: 36px;
+    padding: 0 0.75rem;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    font-size: 1rem;
+    font-family: var(--font-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+option {
+    padding: 0.5rem;
+}
+
+.counter {
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+  font-family: var(--font-text);
+}
+
+.counter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.counter-buttons .btn {
+  background-color: #d97738;
+  font-size: 1.5rem;
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+}
+
+#btnSubmit{
+  margin-top: 1rem;
+}
